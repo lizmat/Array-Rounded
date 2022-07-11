@@ -1,0 +1,25 @@
+{
+  "auth": "zef:lizmat",
+  "authors": [
+    "Elizabeth Mattijsen"
+  ],
+  "build-depends": [
+  ],
+  "depends": [
+  ],
+  "description": "arrays that round indices while accessing elements",
+  "license": "Artistic-2.0",
+  "name": "Array::Rounded",
+  "perl": "6.d",
+  "provides": {
+    "Array::Rounded": "lib/Array/Rounded.rakumod"
+  },
+  "resources": [
+  ],
+  "source-url": "https://github.com/lizmat/Array-Rounded.git",
+  "tags": [
+  ],
+  "test-depends": [
+  ],
+  "version": "0.0.1"
+}

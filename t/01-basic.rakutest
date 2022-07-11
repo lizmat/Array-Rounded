@@ -1,0 +1,35 @@
+use Test;
+use Array::Rounded;
+
+plan 34;
+
+my   @untyped is Rounded = <a b c d e>;
+my Str @typed is Rounded = <a b c d e>;
+
+for @untyped, @typed -> @a {
+    my str $name = @a.^name;
+
+    is-deeply @a[1],    "b", "is 1 ok on $name";
+    is-deeply @a[1.49], "b", "is 1.49 ok on $name";
+    is-deeply @a[1.50], "c", "is 1.50 ok on $name";
+
+    is-deeply @a[1.5]:p, 2 => "c", "is 1.5:p ok on $name";
+    is-deeply @a[1.5]:kv, (2,"c"), "is 1.5:kv ok on $name";
+    is-deeply @a[1.5]:k,        2, "is 1.5:k ok on $name";
+    is-deeply @a[1.5]:v,      "c", "is 1.5:k ok on $name";
+
+    is-deeply @a[1.5]:exists,  True, "is 1.5:exists ok on $name (1)";
+    is-deeply @a[1.5]:delete,   "c", "is 1.5:delete ok on $name";
+    is-deeply @a[1.5]:exists, False, "is 1.5:exists ok on $name (2)";
+    is-deeply (@a[1.5] = "X"),  "X", "is 1.5 = X ok on $name";
+    is-deeply @a[1.5],          "X", "is 1.5 ok on $name";
+    is-deeply (@a[2.5] := "Y"), "Y", "is 2.5 = Y ok on $name";
+    is-deeply @a[2.5],          "Y", "is 2.5 ok on $name";
+
+    is-deeply @a[0.5,2.5], <b Y>, "is 0.5,2.5 ok on $name";
+
+    is-deeply (@a[0.5,1.5] = <S Z>), <S Z>, "is 1.5,2.5 = S Z ok on $name";
+    is-deeply @a[0.5,1.5],           <S Z>, "is 1.5,2.5 ok on $name";
+}
+
+# vim: expandtab shiftwidth=4
