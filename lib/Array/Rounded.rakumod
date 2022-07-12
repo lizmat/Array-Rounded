@@ -69,6 +69,14 @@ multi sub postcircumfix:<[ ]>(Array::Rounded:D \SELF, Any:D \index, |c) {
     old-same SELF, index.round, |c
 }
 
+# Keep any normal array working
+multi sub postcircumfix:<[ ]>(Array:D \SELF,  Any:D  \index) {
+    old-same SELF, index
+}
+multi sub postcircumfix:<[ ]>(Array:D \SELF,  Any:D  \index, |c) {
+    old-same SELF, index, |c
+}
+
 =begin pod
 
 =head1 NAME

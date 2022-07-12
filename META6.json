@@ -18,8 +18,11 @@
   ],
   "source-url": "https://github.com/lizmat/Array-Rounded.git",
   "tags": [
+    "ARRAY",
+    "ROUNDING",
+    "AT-POS"
   ],
   "test-depends": [
   ],
-  "version": "0.0.1"
+  "version": "0.0.2"
 }
