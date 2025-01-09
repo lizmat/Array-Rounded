@@ -1,3 +1,4 @@
 .precomp/
 /Array-Rounded-*
 /releases/
+*.rakucov
