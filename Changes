@@ -1,6 +1,8 @@
 Revision history for Array-Rounded
 
 {{$NEXT}}
+
+0.0.3  2025-01-09T15:45:39+01:00
     - Add CI badge for each OS
     - Update copyright year
 
